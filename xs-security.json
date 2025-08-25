@@ -1,0 +1,56 @@
+{
+  "xsappname" : "ZRAMA_PLANNED_ORDER",
+  "tenant-mode":"dedicated",
+  "scopes": [
+{
+  "name":"$XSAPPNAME.Viewer",
+  "description":"View data using this scope"
+},
+{
+  "name":"$XSAPPNAME.Admin",
+  "description":"Perform CRUD operations using this scope"
+}
+  ],
+  "attributes": [
+
+    {
+    "name":"PlantCondition",
+    "description":"Plant Condition",
+    "valueType":"string"
+
+    }
+  ],
+  "role-templates": [ {
+      "name" : "Viewer",
+      "description" : "View all data from our service",
+      "default-role-name" : "Viewer: Authorized to read country specific data",
+      "scope-references" : [
+        "$XSAPPNAME.Viewer"
+      ],
+      "attribute-references" : [
+        {
+          "name" : "PlantCondition"
+        }
+      ]
+    },
+    {
+      "name" : "Admin",
+      "description" : "Create, Edit, delete from the service",
+      "scope-references" : [
+        "$XSAPPNAME.Admin"
+      ]
+    }
+  ],
+  "authorities" : [
+    "$ACCEPT_GRANTED_AUTHORITIES"
+  ],
+  "oauth2-configuration" : {
+    "token-validity" : 9000,
+    "redirect-uris" : [
+      "https://*.cfapps.us10-001.hana.ondemand.com/login/callback"
+    ]
+  },
+  "xsenableasyncservice" : "true"
+}
+
+

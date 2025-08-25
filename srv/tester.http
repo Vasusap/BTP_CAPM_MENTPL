@@ -1,0 +1,71 @@
+##Testing Local 
+
+GET http://localhost:4004/odata/v4/PlannedOrderData/dbPlannedOrder
+
+### Get all Planned Orders
+POST http://localhost:4004/odata/v4/PlannedOrderData/dbcapacity
+Content-Type:application/json
+{
+      "capakey": "ZRAMA_CAPA1",
+      "capadescr": "manufacturing capacity" ,
+      "unit":  "HR",   
+      "setup": "1",  
+      "S_unit":  "HR",
+      "process": "6",
+      "P_unit": "HR", 
+      "teardown":"1",
+      "T_unit":"HR",
+
+}
+
+###Read Material
+POST http://localhost:4004/odata/v4/PlannedOrderData/dbmaterial
+Content-Type:application/json
+{
+  "matkey":"ZRAMA_MAT1" ,
+  "matdescr" :"FERT Test Material",
+  "unit":"EA"
+
+}
+
+###
+POST http://localhost:4004/odata/v4/PlannedOrderData/dbcapacity
+Content-Type: application/json
+Accept: application/json
+
+{
+  "capakey": "ZRAMA_CAPA3",
+  "capadescr": "manufacturing capacity",
+  "unit": "HR",
+  "setup": 2,
+  "S_unit": "HR",
+  "process": 4,
+  "P_unit": "HR",
+  "teardown": 2,
+  "T_unit": "HR"
+}
+
+
+
+###dbPlannedOrder
+GET http://localhost:4004/odata/v4/PlannedOrderData/dbPlannedOrder
+
+
+###dbPlannedOrder
+POST http://localhost:4004/odata/v4/PlannedOrderData/dbPlannedOrder
+Content-Type: application/json
+Accept: application/json
+
+{
+  "plndkey": "PLND_2",
+  "plant": "0001",
+  "mrparea": "0001",
+  "order_qty": 10,
+  "start_date": "2025-10-02",
+  "end_date": "2025-10-03",
+  "Firmed": " "
+  
+}
+
+
+
