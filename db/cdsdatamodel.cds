@@ -4,6 +4,8 @@ using { plannedorder.db.transactional as transaction , plannedorder.db.masterdat
 
 context cdsviews {
 
+
+
 define view ![plannedOrderCDSview] as 
   select from transaction.plannedorder{
     key plndkey as ![plannedorder],
